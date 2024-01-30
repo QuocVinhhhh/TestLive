@@ -4,6 +4,7 @@ keep_alive()
 import datetime, requests, time, threading
 
 
+replitUrl = "https://testlive.vinhquoc.repl.co"
 webhook_url = "https://discord.com/api/webhooks/1151152168771006546/bvwW89q6DsZhnOhhrtwK3xxwDasF7266g9CQq2JvJU9o7XuF2Zu4xgDp_BCuCmlP7C6d"
 
 def get_current_time():
@@ -36,7 +37,10 @@ headers = {
     'viewport-width': '1366',
 }
 def run():
-  to_discord(f"Send requests | Alive | " + get_current_time())
+  r = requests.get(replitUrl, headers=headers).text
+  r = requests.get("https://notificationvnedu.onrender.com/", headers=headers).text
+  r = requests.get("https://testlive.onrender.com/", headers=headers).text
+  to_discord(f"Send requests | {r} | " + get_current_time())
 
 
 while True:
