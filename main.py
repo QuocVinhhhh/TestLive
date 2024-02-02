@@ -37,7 +37,6 @@ headers = {
     'viewport-width': '1366',
 }
 def run():
-  r = requests.get(replitUrl, headers=headers).text
   r = requests.get("https://notificationvnedu.onrender.com/", headers=headers).text
   r = requests.get("https://testlive.onrender.com/", headers=headers).text
   to_discord(f"Send requests | {r} | " + get_current_time())
